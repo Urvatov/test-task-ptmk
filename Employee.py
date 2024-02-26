@@ -14,7 +14,13 @@ class Employee:
         return self.name
     
     def get_age(self) -> int:
-        return date.today().year - self.date_of_birth.year
+        today = date.today()
+        age = today.year - self.date_of_birth.year
+
+        if (today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day):
+            age -= 1
+
+        return age
     
     def save_to_database(self, data):
         data.cursor.execute("""INSERT INTO employees (name, date_of_birth, sex)
