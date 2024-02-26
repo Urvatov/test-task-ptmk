@@ -5,6 +5,8 @@ from datetime import date
 
 from create_table import create_table
 from add_employee import add_employee
+from display_employees import display_employees
+from fill_db import fill_db
 
 
 def main(arg : int):
@@ -15,7 +17,8 @@ def main(arg : int):
     match arg:
         case 1: create_table()
         case 2: add_employee(sys.argv[2], sys.argv[3], sys.argv[4])
-        case 3: pass
+        case 3: display_employees()
+        case 4: fill_db()
 
 
 def connect_db():
