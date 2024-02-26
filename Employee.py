@@ -1,5 +1,6 @@
 from datetime import date
-from main import cursor, connection
+import sqlite3
+
 
 class Employee:
     def __init__(self, name : str, date_of_birth : date, sex : str):
@@ -14,8 +15,11 @@ class Employee:
         return date.today().year - self.date_of_birth.year
     
     def save_to_database(self):
-        cursor.execute("""INSERT INTO employees (name, date_of_birth, sex) 
-                        VALUES (?, ?, ?, ?)""", (self.name, self.date_of_birth, self.sex))
+        connection = sqlite3.connect("database.db")
+        cursor = connection.cursor()
+
+        cursor.execute("""INSERT INTO employees (name, date_of_birth, sex)
+                        VALUES (?, ?, ?)""", (self.name, self.date_of_birth, self.sex))
         
         connection.commit()
         connection.close()
