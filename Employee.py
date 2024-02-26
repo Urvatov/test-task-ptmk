@@ -23,3 +23,15 @@ class Employee:
         
         connection.commit()
         connection.close()
+
+    @staticmethod
+    def insert_data(employees : list):
+        connection = sqlite3.connect("database.db")
+        cursor = connection.cursor()
+
+        for employee in employees:
+            cursor.execute("""INSERT INTO employees (name, date_of_birth, sex) VALUES (?, ?, ?)""", (employee.name, employee.date_of_birth, employee.sex))
+            
+        
+        connection.commit()
+        connection.close()
