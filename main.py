@@ -12,14 +12,14 @@ from fill_db import fill_db
 def main(arg : int):
     print(f"Аргумент: {arg}")
 
-    connect_db()
-    
+      
     match arg:
         case 1: create_table()
         case 2: add_employee(sys.argv[2], sys.argv[3], sys.argv[4])
         case 3: display_employees()
         case 4: fill_db()
 
+    connect_db() 
 
 def connect_db():
     global connection

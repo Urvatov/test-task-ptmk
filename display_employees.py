@@ -6,7 +6,11 @@ def display_employees():
     connection = sqlite3.connect("database.db")
     cursor = connection.cursor()
 
-    cursor.execute("""SELECT * FROM employees ORDER BY name""")
+    cursor.execute("""SELECT * FROM employees
+                    WHERE id IN (
+                    SELECT MIN(id)
+                    FROM employees
+                    GROUP BY name, date_of_birth) ORDER BY name""")
 
     employees = cursor.fetchall()
 
@@ -19,4 +23,4 @@ def display_employees():
     
 
 
-display_employees()
+#display_employees()

@@ -16,8 +16,10 @@ def generate_name() -> str:
 
 def generate_date() -> date:
     year = random.randint(1960, 2024)
-    month = random.randint(1, 12)
-    day = random.randint(1, 28)
+    #month = random.randint(1, 12)
+    month = 1
+    #day = random.randint(1, 28)
+    day = 1
 
     return date(year, month, day)
 
@@ -44,5 +46,3 @@ def fill_db():
 
     Employee.insert_data(employees)
     print("Значения вставлены")
-
-fill_db()
