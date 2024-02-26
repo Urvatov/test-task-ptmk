@@ -1,14 +1,11 @@
 import sys
 
-from database_manager import DatabaseManager
-
 from create_table import create_table
 from add_employee import add_employee
 from display_employees import display_employees
 from fill_db import fill_db
 from get_query import get_query, create_index
 
-DATABASE = "database.db"
 def main(arg : int):
     print(f"Аргумент: {arg}")
 

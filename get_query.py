@@ -1,4 +1,3 @@
-import sqlite3
 import time
 from database_manager import data
 

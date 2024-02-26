@@ -1,5 +1,3 @@
-import sqlite3
-
 from database_manager import data
 
 def create_table():

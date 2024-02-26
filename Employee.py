@@ -1,6 +1,4 @@
 from datetime import date
-import sqlite3
-
 from database_manager import data
 
 
