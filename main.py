@@ -7,6 +7,7 @@ from create_table import create_table
 from add_employee import add_employee
 from display_employees import display_employees
 from fill_db import fill_db
+from get_query import get_query, create_index
 
 
 def main(arg : int):
@@ -18,6 +19,8 @@ def main(arg : int):
         case 2: add_employee(sys.argv[2], sys.argv[3], sys.argv[4])
         case 3: display_employees()
         case 4: fill_db()
+        case 5: get_query()
+        case 6: create_index()
 
     connect_db() 
 

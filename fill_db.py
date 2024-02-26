@@ -2,11 +2,14 @@ from employee import Employee
 
 import random
 from datetime import date
+from progress.bar import IncrementalBar 
 
-iterations = 1000000
+iterations = 10000000
 
 employees = []
 letters = "abcdefghijklmnopqrstuvwxyz"
+
+progress_bar = IncrementalBar('Заполнение базу данных:', max=100)
 
 def generate_name() -> str:
     letter = random.choice(letters)
@@ -40,9 +43,11 @@ def f_strings():
 def fill_db():
     f_strings()
 
-    for _ in range(iterations):
+    for i in range(iterations):
         employee = Employee(generate_name(), generate_date(), generate_sex())
         employees.append(employee)
+    
+        progress_bar.next()
 
     Employee.insert_data(employees)
     print("Значения вставлены")
