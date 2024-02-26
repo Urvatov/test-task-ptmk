@@ -1,10 +1,9 @@
 import sqlite3
 
+from database_manager import data
+
 def create_table():
-    connection = sqlite3.connect("database.db")
-    cursor = connection.cursor()
-    
-    cursor.execute("""CREATE TABLE IF NOT EXISTS employees 
+    data.cursor.execute("""CREATE TABLE IF NOT EXISTS employees 
                    (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT NOT NULL,

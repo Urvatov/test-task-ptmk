@@ -2,19 +2,18 @@ import sqlite3
 from employee import Employee
 from datetime import date
 
-def display_employees():
-    connection = sqlite3.connect("database.db")
-    cursor = connection.cursor()
+from database_manager import data
 
-    cursor.execute("""SELECT * FROM employees
+def display_employees():
+    data.cursor.execute("""SELECT * FROM employees
                     WHERE id IN (
                     SELECT MIN(id)
                     FROM employees
                     GROUP BY name, date_of_birth) ORDER BY name""")
 
-    employees = cursor.fetchall()
+    employees = data.cursor.fetchall()
 
-    connection.close()
+    data.connection.close()
 
     for employee in employees:
         employee_instance = Employee(employee[1], date.fromisoformat(employee[2]), employee[3])
