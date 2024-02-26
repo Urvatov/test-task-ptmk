@@ -25,7 +25,8 @@ python main.py 1
 Добавление сотрудника в БД реализовано в файле [add_employee.py](add_employee.py). Вызов через main с вводом всех аргументов. 
 Создается объект класса [Employee](employee.py), после чего его поля заносятся в базу данных при помощи собственного метода.
 ![изображение](https://github.com/Urvatov/test-task-ptmk/assets/117490456/893a3063-4941-492d-bd1f-f9026e9ff6c1)
-![изображение](https://github.com/Urvatov/test-task-ptmk/assets/117490456/1982223e-95a3-4ac3-9799-b6edd0e952b2)
+![изображение](https://github.com/Urvatov/test-task-ptmk/assets/117490456/e0a3dbb7-7c9e-4b30-a4ee-726ce65d1261)
+
 
 ### 3. Вывод сотрудников  
 Вывод сотрудников реализован в файле [display_employees.py](display_employees.py) при помощи SQL-запроса. Вывод полных лет реализован методом класса Employee.
