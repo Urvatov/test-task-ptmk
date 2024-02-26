@@ -4,7 +4,7 @@ def display_employees():
     connection = sqlite3.connect("database.db")
     cursor = connection.cursor()
 
-    cursor.execute("""SELECT * FROM employees""")
+    cursor.execute("""SELECT * FROM employees ORDER BY name""")
 
     employees = cursor.fetchall()
 
@@ -14,6 +14,6 @@ def display_employees():
     for employee in employees:
         print(f"{employee[0]} | {employee[1]} | {employee[2]} | {employee[3]}")
     
-    
+
 
 display_employees()
