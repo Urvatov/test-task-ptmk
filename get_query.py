@@ -2,12 +2,12 @@ import sqlite3
 import time
 from database_manager import data
 
-def get_query() -> list:
+def get_query() -> tuple:
 
     start_time = time.time()
 
     data.cursor.execute(""" SELECT * FROM employees WHERE sex = "Male" AND name LIKE "F%" """)
-
+    #data.cursor.execute(""" SELECT * FROM employees WHERE name LIKE "F%" AND sex = "Male" """)
     employees = data.cursor.fetchall()
 
     data.connection.close()
@@ -21,8 +21,9 @@ def get_query() -> list:
     return employees
 
 def create_index():
-    data.cursor.execute("""CREATE INDEX IF NOT EXISTS name_index ON employees(name, sex)""")
-
+    print("Создание индекса...")
+    data.cursor.execute("""CREATE INDEX IF NOT EXISTS name_index ON employees(sex, name)""")
+    
     data.connection.commit()
     data.connection.close()
 

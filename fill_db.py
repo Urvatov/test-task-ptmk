@@ -1,10 +1,11 @@
 from employee import Employee
 
 import random
+import time
 from datetime import date
 from database_manager import data
 
-iterations = 10000000
+iterations = 1000000
 
 employees = []
 letters = "abcdefghijklmnopqrstuvwxyz"
@@ -32,19 +33,27 @@ def generate_sex() -> str:
 
 def f_strings():
     for _ in range(100):
-        employee = Employee("F_NAME", generate_date(), "MALE")
+        employee = Employee("F_NAME", generate_date(), "Male")
         employees.append(employee)
 
-        Employee.insert_data(employees)
+        Employee.insert_data(data, employees)
 
         employees.clear()
 
 def fill_db():
-    f_strings()
+    start_time = time.time()
 
-    for i in range(iterations):
+    f_strings()
+    print("Начинается вставка сообщений...")
+
+    for _ in range(iterations):
         employee = Employee(generate_name(), generate_date(), generate_sex())
         employees.append(employee)
     
     Employee.insert_data(data, employees)
-    print("Значения вставлены")
+
+    end_time = time.time()
+
+    total_time = end_time - start_time
+
+    print(f"Значения вставлены. Время выполнения: {total_time} секунд")

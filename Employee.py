@@ -35,4 +35,4 @@ class Employee:
             data.cursor.execute("""INSERT INTO employees (name, date_of_birth, sex) VALUES (?, ?, ?)""", (employee.name, employee.date_of_birth, employee.sex))
             
         data.connection.commit()
-        data.connection.close()
+        #data.connection.close()
